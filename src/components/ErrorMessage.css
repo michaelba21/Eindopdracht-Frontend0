@@ -1,0 +1,70 @@
+.error-message {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: var(--color-error-light);
+  border: 1px solid var(--color-error);
+  border-radius: 4px;
+  padding: 12px 16px;
+  margin: 8px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2); 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 300px; /*With this code I tried to generate enough width for better readability.*/
+  max-width: 500px; /*I used max-with here because it avoid the message from expanding excessively across the interface.*/
+  z-index: 1000; /* with this I have tried to Keep the message visiable above other UI elements*/
+  animation: slideIn 0.3s ease-out; /*I applied this in order to Introduce the message with a  lateral animation and more user friendly experiences.*/
+}  
+
+.error-content {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--color-error);
+  font-size: 14px;
+  margin-right: 12px;
+}
+
+.error-icon {
+  font-size: 20px;
+}
+
+.error-dismiss {
+  background: none;
+  border: none;
+  color: var(--color-error);
+  font-size: 20px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: background-color 0.2s;
+}
+.error-dismiss:hover {
+  background-color: var(--color-secondary-light); /* Hover background */
+}
+/* @keyframes essentially outlines the sequence of an animation. In this scenario, the error message transitions onto the screen from the right, simultaneously increasing in opacity */
+@keyframes slideIn {
+  from {
+    transform: translateX(100%); /* I applied this to Start off-screen to the right */
+    opacity: 0; /* Invisible */
+  }
+  to {
+    transform: translateX(0); /* I appied this code to return the element to its original position.it helps effectively animating both its movement and its visibility. */
+    opacity: 1; /* Fully visible */
+  }
+}
+/*  error message can fades out smoothly, reducing opacity from fully visible to invisible */
+@keyframes fadeOut {
+  from {
+    opacity: 1; /* Start fully visible */
+  }
+  to {
+    opacity: 0; /* End invisible */
+  }
+}
+
+/* Fade out when dismissing */
+.error-message.dismissing {
+  animation: fadeOut 0.3s ease-out forwards; /* Play fade out in 3 second */
+}

@@ -1,0 +1,249 @@
+:root{
+  --white:#ffffff;
+  --green:#4caf50;
+}
+
+.header {
+  background-color: var(--green);
+  color: var(--white);
+  padding: 20px 0;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.11);
+  transition: background-color 0.3s ease;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: fixed;
+  bottom: 0px;
+  right: 12px;
+  padding: 1px;
+  border-radius: 50%;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  cursor: pointer;
+  z-index: 1000;/* I set z-index here because it ensures the button stays above most other elements */
+  transition: all var(--transition-speed);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+/* Applying scale(1.1) to an element increases both its width and height by 10%, resulting in the element appearing at 110% of its original size. Conversely, using scale(1.0) leaves the element unchanged, maintaining its dimensions at 100% of the original." */
+.theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive Theme Toggle */
+@media (max-width: 768px) {
+  .theme-toggle {
+    bottom: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .theme-toggle {
+    bottom: 8px;
+    right: 8px;
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 24px;
+  gap: 15px;
+}
+
+.logo h1 {
+  font-size: 26px;
+  margin: 0;
+  line-height: 1.2;
+ white-space: nowrap;   /*I have applied this because it will not break the text into multiple lines.  */ 
+}
+
+.nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.nav-link {
+  color: rgb(255, 255, 255);
+  text-decoration: none;  /*  I used this in order to not display the underline, */
+  font-weight: 500;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  padding: 8px 6px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.nav-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.nav-link.active {
+  background-color: rgba(255, 255, 255, 0.2);
+  font-weight: 600;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: var(--white);
+  border-radius: 2px;
+}
+
+.logout-btn {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  padding: 8px 16px;
+  width: auto;
+  white-space: nowrap;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Large screens (adjust for very wide displays) */
+@media (min-width: 1400px) {
+  .header {
+    max-width: 1200px;
+  }
+}
+
+/* Medium screens (tablets) */
+@media (max-width: 1200px) {
+  .header {
+    width: 100%;
+    padding: 15px 0;
+  }
+  
+  .header-container {
+    padding: 0 20px;
+  }
+  
+  .logo h1 {
+    font-size: 24px;
+  }
+  
+  .nav {
+    gap: 15px;
+  }
+
+  .nav-link,
+  .logout-btn {
+    font-size: 15px;
+    padding: 6px 8px;
+  }
+}
+/* The 3-step method enhances the header’s adaptability and legibility across a wide spectrum of small screen devices, ranging from larger smartphones to the smallest displays. This approach is particularly effective in ensuring that headers remain both accessible and user-friendly, regardless of screen size.*/
+
+/* Small screens (large phones) */
+@media (max-width: 768px) {
+  .header {
+    padding: 12px 0;
+  }
+
+  .header-container {
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 15px;
+  }
+
+  .logo h1 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .nav {
+    width: 100%;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .nav-link,
+  .logout-btn {
+    font-size: 14px;
+    padding: 6px 10px;
+    min-width: 80px;
+    text-align: center;
+  }
+}
+
+/* Extra small screens (phones) */
+@media (max-width: 480px) {
+  .header {
+    padding: 10px 0;
+  }
+
+  .header-container {
+    padding: 0 10px;
+  }
+
+  .logo h1 {
+    font-size: 20px;
+  }
+
+  .nav {
+    gap: 8px;
+  }
+
+  .nav-link,
+  .logout-btn {
+    font-size: 13px;
+    padding: 5px 8px;
+    min-width: 70px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .nav {
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .nav-link,
+  .logout-btn {
+    width: 100%;
+    text-align: center;
+    padding: 8px 0;
+    min-width: unset;
+  }
+
+  .logo h1 {
+    font-size: 18px;
+  }
+}

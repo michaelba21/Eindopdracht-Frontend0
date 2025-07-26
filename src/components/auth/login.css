@@ -1,0 +1,436 @@
+/* CSS Custom Properties */
+:root {
+  --primary-gradient-start: #667eea;
+  --primary-gradient-end: #764ba2;
+  --white: #fff;
+  --white-transparent-95: rgba(255, 255, 255, 0.95);
+  --white-transparent-20: rgba(255, 255, 255, 0.2);
+  --white-transparent-02: rgba(255, 255, 255, 0.2);
+  --red-transparent-02: rgba(255, 0, 0, 0.3);
+  --text-primary: #333;
+  --text-secondary: #666;
+  --text-tertiary: #555;
+  --text-placeholder: #9ca3af;
+  --border-light: #e1e5e9;
+  --border-hover: #c1c9d2;
+  --primary-blue: #667eea;
+  --primary-purple: #764ba2;
+  --error-text: #dc3545;
+  --error-bg: #f8d7da;
+  --error-border: #f5c6cb;
+  --success-text: #155724;
+  --success-bg: #d4edda;
+  --success-border: #c3e6cb;
+  --valid-green: #28a745;
+  --dark-bg: rgba(30, 30, 30, 0.95);
+  --dark-text-primary: #fff;
+  --dark-text-secondary: #ccc;
+  --dark-text-tertiary: #e0e0e0;
+  --dark-input-bg: #2a2a2a;
+  --dark-border: #404040;
+  --dark-placeholder: #888;
+  --dark-notice-bg: rgba(248, 215, 218, 0.1);
+  --dark-notice-border: rgba(245, 198, 203, 0.3);
+  --dark-notice-text: #f8d7da;
+}
+
+/* Login component styling */
+.login-container {
+  min-height: 100vh;     /* full screen height . */
+  display: flex;                            
+  align-items: center;                       
+  justify-content: center;                   /* center items is set here horizontally */
+  background: linear-gradient(135deg, var(--primary-gradient-start) 0%, var(--primary-gradient-end) 100%);  /* The background here has diagonal gradient property from top-left to bottom-right */
+  padding: 1rem;                             
+  font-family: 'Segoe UI', Verdana, sans-serif;  /* primary font with fallback options if unavailable */
+}
+
+.login-card {
+  background: var(--white-transparent-95);      
+  backdrop-filter: blur(9px);              
+  border-radius: 15px;                       
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  padding: 2.5rem;                          
+  width: 100%;                              
+  max-width: 420px;                          
+  border: 1px solid var(--white-transparent-20);
+}
+
+.login-card h1 {
+  color: var(--text-primary);                            
+  margin-bottom: 1rem;                    
+  text-align: center;                     
+  font-size: 2rem;                        
+  font-weight: bold;       
+  color: var(--primary-blue);           
+  text-align: center;                    
+}
+
+.login-card p {
+  text-align: center;                        
+  color: var(--text-secondary);                             
+  margin-bottom: 2rem;                       
+  font-size: 0.94rem;                       
+}
+
+.login-form {
+  display: flex;                           
+  flex-direction: column;                   
+  gap: 1.5rem;                            
+}
+
+.form-field {
+  display: flex;                          
+  flex-direction: column;                   
+  gap: 0.5rem;                              
+}
+
+.form-field label {
+  font-weight: 600;                        
+  color: var(--text-tertiary);                           
+  font-size: 0.94rem;                     
+  margin-left: 4px;                        
+}
+
+.form-field input {
+  width: 100%;                              
+  padding: 1rem 1.24rem;                     
+  border: 2px solid var(--border-light);             
+  border-radius: 12px;                      
+  background-color: var(--white);                  
+  color: var(--text-primary);                             
+  font-size: 1rem;                          
+  transition: all 0.3s ease;                 /* here I used a smooth transitions */
+  box-sizing: border-box;                   
+}
+
+.form-field input:focus {
+  outline: none;                             
+  border-color: var(--primary-blue);                    
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1); 
+  transform: translateY(-1px);               /* slight lift */
+}
+
+.form-field input:hover {
+  border-color: var(--border-hover);                   
+}
+
+.form-field input::placeholder {
+  color: var(--text-placeholder);                          
+  font-style: italic;                        /* I have set here a italic placeholder with gray color*/
+}
+
+.form-field input:disabled {
+  background-color: var(--white);             
+  border-color: var(--white);                  
+  color: var(--white-transparent-20);                          
+  cursor: not-allowed;                     
+}
+
+.important-notice {
+  background-color: var(--red-transparent-02);               
+  border: 1px solid rgba(234, 82, 204, 0.2);            
+  border-radius: 8px;                     
+  padding: 1rem;                             
+  margin-bottom: 1.5rem;                     
+  color: var(--text-primary);                           
+  font-size: 0.9rem;                         
+  line-height: 1.4;                       
+}
+
+.important-notice strong {
+  font-weight: 700;                     
+}
+
+.error-message {
+  color: var(--error-text);                          
+  background-color: var(--error-bg);                
+  border: 1px solid var(--error-border); 
+  border-radius: 7px;                      
+  padding: 0.74rem 1rem;                 
+  margin: 1rem 0;                            
+  font-size: 0.9rem;                         
+  font-weight: 499;                      
+  display: flex;                          
+  align-items: center;                   
+  gap: 0.5rem;                              
+}
+
+.error-message::before {
+  content: "⚠️";                            /* warning icon in case of error*/
+  font-size: 1rem;                           /* icon size . "1rem=16px"*/
+}
+
+.form-button {
+  width: 100%;                              
+  padding: 1rem 1.51rem;                     
+  font-size: 1.1rem;                      
+  font-weight: 600;                          
+  border-radius: 13px;                      
+  cursor: pointer;                         
+  transition: all 0.3s ease;     /* i have set the animate smooth here and changes over 0.3s */ 
+  border: none;                  /* no border around buttons*/
+  background-color: var(--primary-gradient-start);
+  color: var(--white);                        
+  margin-top: 0.51rem;                   
+  position: relative;                     
+  overflow: hidden;                    
+}
+
+.form-button::before {
+  content: '';         /* I have set an empty element here for shine effect */
+  position: absolute;  /* The position is set to absolute suit for animation */
+  top: 0;
+  left: -100%;   /*position element just outside the visible area on the left and allows to slide in smoothly during animation */
+  width: 100%;
+  height: 100%;
+ background-color: var(--white-transparent-20); 
+  transition: left 0.51s;                
+}
+
+.form-button:hover::before {
+  left: 100%;                              
+}
+
+.form-button:hover {
+  transform: translateY(-2px);  
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.3); /* this will provide a glow in shadow */
+}
+
+.form-button:active {
+  transform: translateY(0);                  /* this will generate a reset on click */
+}
+
+.form-button:disabled {
+  opacity: 0.7;                           
+  cursor: not-allowed;    
+  transform: none;                          
+  box-shadow: none;                          
+}
+
+.form-button:disabled:hover {
+  transform: none;                           
+  box-shadow: none;                          
+}
+
+.register-link {
+  text-align: center;                       
+  margin-top: 1.5rem;                        
+  color: var(--text-secondary);                               
+  font-size: 0.94rem;                       
+}
+
+.register-link a {
+  color: var(--primary-blue);                          
+  text-decoration: none; 
+  font-weight: 599;                       
+  transition: color 0.3s ease;             
+}
+
+.register-link a:hover {
+  color: var(--primary-purple);                           
+  text-decoration: underline;      /* underline on hover  */
+}
+
+/* Loading animation */
+.form-button:disabled::after {
+  content: '';                               /* this will show a empty loader element */
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;                          
+  border: 2px solid transparent;
+  border-top: 2px solid var(--white);                
+  border-radius: 50%;                     
+  animation: spin 1s linear infinite;   /* This show a continuously rotate element to simulate loading. */     
+  display: inline-block;                     
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }            /* this initiate a spin */
+  100% { transform: rotate(360deg); }        /* this generate a full rotation */
+}
+
+/* Success message styling */
+.success-message {
+  color: var(--success-text);                          
+  background-color: var(--success-bg);               
+  border: 1px solid var(--success-border);                
+  border-radius: 7px;                       
+  padding: 0.74rem 1rem;                   
+  margin: 1rem 0;                           
+  font-size: 0.8rem;                       
+  font-weight: 499;                        
+  display: flex;                           
+  align-items: center;                       
+  gap: 0.5rem;                              
+}
+
+.success-message::before {
+  content: "✅";                            
+  font-size: 1rem;                          
+}
+
+/* Demo credentials button */
+.demo-button {
+  background: none;                         
+  border: none;                              
+  color: var(--primary-blue);                           
+  text-decoration: underline;               
+  cursor: pointer;                          
+  font-size: inherit;                        /* This will use the font size of the parent element */
+  font-weight: 600;                          
+  padding: 0;
+  margin: 0;
+  transition: color 0.2s ease;  /* This code here will generate a smooth hover.  */
+}
+
+.demo-button:hover {
+  color: var(--primary-purple);                        
+}
+
+/* Responsive design */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 0.5rem;                       
+  }
+
+  .login-card {
+    padding: 2rem 1.5rem;                   
+    border-radius: 12px;                     
+  }
+
+  .login-card h1 {
+    font-size: 1.75rem;                  
+    margin-bottom: 0.75rem;              
+  }
+
+  .login-card p {
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+  }
+
+  .form-field input {
+    padding: 0.875rem 1rem;                  
+    font-size: 0.95rem;
+  }
+
+  .form-button {
+    padding: 0.875rem 1.25rem;
+    font-size: 1rem;
+  }
+
+  .important-notice {
+    padding: 0.875rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+  .login-card {
+    background: var(--dark-bg);       /* This will set a dark background for login card */
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .login-card h1 {
+    color: var(--dark-text-primary);
+  }
+
+  .login-card p {
+    color: var(--dark-text-secondary);
+  }
+
+  .form-field label {
+    color: var(--dark-text-tertiary);
+  }
+
+  .form-field input {
+    background-color: var(--dark-input-bg);
+    border-color: var(--dark-border);
+    color: var(--dark-text-primary);
+  }
+
+  .form-field input:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(102, 125, 233, 0.2);
+  }
+
+  .form-field input::placeholder {
+    color: var(--dark-placeholder);
+  }
+
+  .register-link {
+    color: var(--dark-text-secondary);
+  }
+
+  .important-notice {
+    background-color: var(--dark-notice-bg); /* I have sets background color here for dark mode alert */
+    border-color: var(--dark-notice-border);
+    color: var(--dark-notice-text);
+  }
+}
+
+/* This property will show a custom focus ring only when navigating via keyboard for accessibility*/
+.form-field input:focus-visible {
+  outline: 2px solid var(--primary-blue);                
+  outline-offset: 2px;
+}
+
+.form-button:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 2px;
+}
+
+/* Animation for form appearance */
+.login-card {
+  animation: slideUp 0.6s ease-out;          /* this will generate a slide up character in animation */
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Input validation states */
+.form-field input:invalid {
+  border-color: var(--error-text);                     
+}
+
+.form-field input:valid {
+  border-color: var(--valid-green);                    
+}
+
+/* Focus ring for better accessibility */
+.form-field input:focus {
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+}
+
+/* Hover effects for interactive elements */
+.demo-button:focus {
+  outline: 2px solid var(--primary-blue);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Loading state for form */
+.login-form.loading {
+  pointer-events: none;      /* I applied this character here to disable user input and show loading state with faded appearance */
+  opacity: 0.8;                              
+}
+
+/* This will Enhances the button states */
+.form-button:focus {
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+}
+
+.form-button:active {
+  transform: translateY(1px);                /* this shows a press effect when you click button*/
+  box-shadow: 0 5px 15px rgba(102, 125, 233, 0.2);
+}

@@ -1,0 +1,45 @@
+/* Accessibility and interaction styles */
+ @media (prefers-reduced-motion: reduce) { /*I used this because it disable animations if prefers-reduced-motion is enabled for accessibility */
+  .faq-item,
+  .faq-question,
+  .support-button {
+    transition: none;
+  }
+}
+
+@media (forced-colors: active) {
+  .faq-item {
+    border: 1px solid var(--color-border); 
+  }
+  .faq-question,
+  .support-button {
+    border: 1px solid var(--color-border); 
+  }
+}
+
+/* Interactive buttons */
+.btn {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+/* City card interaction */
+.city-card {
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+/* Form styles */
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: 6px;
+}
